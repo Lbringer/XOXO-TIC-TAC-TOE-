@@ -1,4 +1,4 @@
-//Susmit starts
+//SUSMIT STARTS
 #define up 9
 #define down 10
 #define right 11
@@ -103,7 +103,6 @@ int is_win()//see if their is a winner 2 for RED, 1 for GREEN , 0 for not one
     if (led_mat[0][2] == led_mat[1][1] && led_mat[1][1] == led_mat[2][0]) return led_mat[2][0];
     return 0;
 }
-//Susmit ends
 //Aditya start
 //These are few functions designed to help with the code
 //Resets everything which is cathode->high,anode->low
@@ -292,8 +291,8 @@ void visual_win(int n)
        led_mat_init();
     }
 }
-//Aditya ends
-//Adnan starts
+//ADITYA ENDS
+//ADNAN STARTS
 bool button_press (int but)
 {
   if (digitalRead(but) == HIGH)
@@ -327,8 +326,8 @@ int button_read ()
   else return -1;
   reset();
 }
-//Adnan ends
-//Susmit starts
+//ADNAN ENDS
+//SUSMIT STARTS
 void loop ()
 {
   reset();
@@ -339,7 +338,7 @@ void loop ()
     int i = 0 , j = 0;
     int turn = check_turn(iter);
     display();
-    while (button_press(select) != true)
+    while (button_press(select) != true || led_mat[i][j] != 0)
     {
       display();
       int but = button_read();
@@ -349,7 +348,7 @@ void loop ()
       select_pos(but , &i , &j);
       display();
       reset();
-      if (led_mat[i][j] == 0)
+      if (1)
       {
         display();
         if (turn == 1)
@@ -382,4 +381,4 @@ void loop ()
   }
   if (winner_check == 0) visual_draw(winner_check);
 }
-//Susmit ends
+//SUSMIT ENDS
