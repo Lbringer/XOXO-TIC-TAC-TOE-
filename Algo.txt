@@ -1,0 +1,18 @@
+1 . Start
+2 . loop 9 times, where time represents a valid move in 3*3 tic tac toe, there are only 9 moves possible in that game
+3 . If the person presses the select button and the position he/she selected is not preoccupied then light up that LED based on the players color and turn
+4 . After each turn check if someone won, If they did then finish loop and start winning sequence
+5 .  If loop runs 9 times without any winner then start the draw sequence.
+6. End
+
+Display Algorithm
+1.	LEDs have a cool off (decay) time of about 40 ms and therefore if they are turned off and on in between that the user wont notice. We can say that their refresh time is less than their decay time.
+2.	This is the principal we are using.
+3.	We turn LEDs on, leave them like that for about 2 ms and then turn them off. This way only 1 LED is on in the LED matrix at a given time.
+4.	The loop displays all the turned on LEDs and comes back to diplay the old one.
+5.	Since there are 9 total LEDs in the game, and displaying all of them (worst possible scanario) will take 18 ms and some microseconds (negligible) therefore we are well below 40 ms theshhold and hence we can display LEDs at out desired positions.
+6.	This is done through a 3*3 matrix, where either 0 , 1 ,2 is stored.
+7.	0 stands for no LED, 1 stands for green LED and 2 stands for red LED.
+Winner Checking Algorithm
+1.	Scan all elements of all three rows and coloumns and see if they are similar after every valid move. If they are declare that color the winer.
+2.	Scan all diagonal elements after that, since they are all the possible winning configurations in a 3*3 matrix, winner will be returned.
