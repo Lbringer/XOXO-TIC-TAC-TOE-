@@ -129,41 +129,7 @@ int check_turn(int n)
         return(1);//means it is greens turn
     }
 }
-//makes one led blink
-//r->row,c->column,col->red or green,i->how many times to blink?
-void blink(int r,int c,int col,int n)
-{
-  	reset();
-    int i;
-    for(i=0;i<n;i++)
-    {
-        if(col==2)
-        {
-            set_red_led(r,c,true);
-            delay(5);
-            set_red_led(r,c,false);
-            delay(750);
-            set_red_led(r,c,false);
-            delay(5);
-            set_red_led(r,c,true);
-            delay(750);
-        }
-            if(col==1)
-            {
-                set_green_led(r,c,true);
-                delay(5);
-                set_green_led(r,c,false);
-                delay(750);
-                set_green_led(r,c,false);
-                delay(5);
-                set_green_led(r,c,true);
-                delay(750);
-            }
-
-    }
-  	reset();
-        
-}        
+      
 //this is what u will see when the match ends in a draw
 void visual_draw(int n)
 {  if(n==0)
@@ -175,17 +141,14 @@ void visual_draw(int n)
   for(i=0;i<3;i++)
   {
      set_row(i,true);
-     for(j=0;j<3;j++)
-     {
-     set_col_green(j,true);
-     set_col_red(j,true);
-     set_col_green(j+1,true);
-     set_col_red(j+1,true);
-     set_col_green(j+2,true);
-     set_col_red(j+2,true);
-       delay(500);
+     set_col_green(0,true);
+     set_col_red(0,true);
+     set_col_green(1,true);
+     set_col_red(1,true);
+     set_col_green(2,true);
+     set_col_red(2,true);
+       delay(1000);
        reset();
-     }
      
  }
   //countinously all on
